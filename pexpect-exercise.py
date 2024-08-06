@@ -1,11 +1,16 @@
 import pexpect
-
+import os
+from dotenv import load_dotenv
 # ตั้งค่าตัวแปร
 prompt = '#'
 ipr1 = '172.31.110.3'
 ipr2 = '172.31.110.4'
-username = 'admin'
-password = 'cisco'
+
+load_dotenv()
+username = os.environ.get('TELNET_USER')
+password = os.environ.get('TELNET_PASSWORD')
+
+
 conf = 'conf t'
 interface = 'int loopback 0'
 ipaddr = 'ip address'
